@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ChevronDown, CheckCircle, Play, Menu, X, ArrowRight, Search, MapPin, Phone, Mail } from 'lucide-react'
+import { ChevronDown, CheckCircle, Play, Menu, X, ArrowRight, MapPin, Phone, Mail } from 'lucide-react'
 
 export function LandingPageComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
