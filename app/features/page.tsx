@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     question: 'Are the career recommendations guaranteed to be the best fit for me?',
-    answer: 'Our recommendations are based on your test results and current market trends. They\'re excellent starting points, but we encourage you to explore and consider your personal preferences as well.'
+    answer: 'Our recommendations are based on your test results and current market trends. They&apos;re excellent starting points, but we encourage you to explore and consider your personal preferences as well.'
   },
   {
     question: 'How up-to-date are the industry insights?',

@@ -64,7 +64,7 @@ export default function GetStarted() {
         </section>
 
         <section className="bg-gradient-to-r from-[#FFD600] to-[#E3F2FD] p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-bold text-[#4F4F4F] mb-2">You're on the right track!</h2>
+          <h2 className="text-2xl font-bold text-[#4F4F4F] mb-2">You&apos;re on the right track!</h2>
           <p className="text-lg text-[#4F4F4F]">
             Taking this step shows your commitment to your future. Remember, every great journey begins with a single step.
           </p>

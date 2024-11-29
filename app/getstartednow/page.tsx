@@ -28,7 +28,7 @@ export default function GetStarted() {
           <Link href="/" className="inline-flex items-center text-white hover:text-[#FFD600] transition duration-300 mb-4">
             <ArrowLeft className="mr-2" /> Back to Home
           </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-2">Let's Get You Started!</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-2">Let&apos;s Get You Started!</h1>
           <p className="text-xl">Discover your ideal academic path with our personalized assessment.</p>
         </div>
       </header>
