@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ArrowLeft, Download, Share2, RefreshCw, HelpCircle, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts'
+import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts'
 
 // Mock data for the charts
 const skillsData = [
@@ -34,6 +34,13 @@ export default function ViewResults() {
     { step: 2, title: "Find Colleges", link: "/find-colleges" },
     { step: 3, title: "Skill Development", link: "/skill-development" },
   ]
+
+  const interests = [
+    { category: "Technology", percentage: 35 },
+    { category: "Science", percentage: 25 },
+    { category: "Business", percentage: 20 },
+    { category: "Healthcare", percentage: 20 }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#E3F2FD] to-white">
@@ -81,26 +88,70 @@ export default function ViewResults() {
           </div>
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-bold text-[#4A90E2] mb-4">Your Interests</h2>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={400}>
               <PieChart>
                 <Pie
-                  data={interestsData}
+                  data={interests}
+                  dataKey="percentage"
+                  nameKey="category"
                   cx="50%"
-                  cy="50%"
-                  labelLine={false}
+                  cy="45%"
                   outerRadius={100}
-                  fill="#8884d8"
-                  dataKey="value"
-                  label={({ name, percent }: { name: string; percent?: number }) => {
-                    const percentage = percent ? (percent * 100).toFixed(0) : '0';
-                    return <tspan>{`${name} ${percentage}%`}</tspan>;
+                  labelLine={{ strokeWidth: 2, stroke: '#4F4F4F' }}
+                  label={({
+                    cx,
+                    cy,
+                    midAngle,
+                    innerRadius,
+                    outerRadius,
+                    category,
+                    percentage
+                  }) => {
+                    const RADIAN = Math.PI / 180;
+                    const radius = outerRadius * 1.4;
+                    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+                    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+                    
+                    return (
+                      <text
+                        x={x}
+                        y={y}
+                        fill="#4F4F4F"
+                        textAnchor={x > cx ? 'start' : 'end'}
+                        dominantBaseline="central"
+                        fontSize="14"
+                        fontWeight="500"
+                      >
+                        {`${category} ${percentage}%`}
+                      </text>
+                    );
                   }}
-                  
                 >
-                  {interestsData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  {interests.map((entry, index) => (
+                    <Cell 
+                      key={`cell-${index}`} 
+                      fill={COLORS[index % COLORS.length]}
+                    />
                   ))}
                 </Pie>
+                <Tooltip 
+                  formatter={(value) => `${value}%`}
+                  contentStyle={{ 
+                    backgroundColor: 'white', 
+                    borderRadius: '8px',
+                    padding: '8px',
+                    border: '1px solid #ccc'
+                  }}
+                />
+                <Legend 
+                  layout="horizontal"
+                  verticalAlign="bottom"
+                  align="center"
+                  wrapperStyle={{ 
+                    paddingTop: '30px',
+                    fontSize: '14px'
+                  }}
+                />
               </PieChart>
             </ResponsiveContainer>
           </div>
