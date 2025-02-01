@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Search, ArrowLeft, ChevronDown, Star, Users, Brain, Book, Briefcase, Award } from 'lucide-react'
 import Link from 'next/link'
+import { Footer } from '@/components/footer'
 
 const features = [
   {
@@ -94,8 +95,8 @@ export default function FeaturesPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#E3F2FD] to-white">
-      <header className="bg-gradient-to-r from-[#4A90E2] to-[#FFD600] py-20 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-[#e3f2fd] font-sans">
+      <header className="bg-[#1976d2] py-8 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto relative z-10">
           <Link href="/" className="inline-flex items-center text-white hover:text-[#FF7043] transition duration-300 mb-4">
             <ArrowLeft className="mr-2" /> Back to Home
@@ -199,27 +200,16 @@ export default function FeaturesPage() {
 
         <div className="mt-16 text-center">
           <h2 className="text-2xl font-bold mb-4 text-[#4F4F4F]">Ready to Explore?</h2>
-          <p className="text-gray-600 mb-6">Start your journey with Career Explorer today!</p>
+          <p className="text-gray-600 mb-6">Start your journey with Career Compass today!</p>
           <Link
             href="/signup"
-            className="bg-gradient-to-r from-[#4A90E2] to-[#6FCF97] text-white px-8 py-3 rounded-full text-lg hover:from-[#3A7BD5] hover:to-[#5ECE7B] transition duration-300 inline-block"
+            className="bg-[#f57c00] hover:bg-[#e65100] text-white px-8 py-3 rounded-full text-lg hover:from-[#3A7BD5] hover:to-[#5ECE7B] transition duration-300 inline-block"
           >
             Get Started Now
           </Link>
         </div>
       </main>
-
-      <footer className="bg-[#4F4F4F] text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; 2023 Career Explorer. All rights reserved.</p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <Link href="/privacy" className="hover:text-[#FFD600] transition duration-300">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-[#FFD600] transition duration-300">Terms of Service</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
